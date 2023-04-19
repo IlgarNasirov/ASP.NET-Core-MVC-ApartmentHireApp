@@ -1,0 +1,27 @@
+﻿@model ApartmentHireApp.DTOs.AddBlockDTO
+@{
+    ViewData["title"] = ViewData["blockTitle"];
+}
+<div class="card">
+    <div class="title">@ViewData["blockTitle"]</div>
+    <div class="content">
+        <div class="container-fluid">
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control" type="text" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="reset-button">
+                    <button class="btn btn-success">@ViewData["blockTitle"]</button>
+                </div>
+                <br />
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

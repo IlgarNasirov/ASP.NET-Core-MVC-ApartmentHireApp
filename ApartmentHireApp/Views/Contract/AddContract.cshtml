@@ -1,0 +1,66 @@
+﻿@model ApartmentHireApp.DTOs.AddContractDTO
+@{
+    ViewData["title"] = ViewData["contractTitle"];
+}
+<div class="card">
+    <div class="title">@ViewData["contractTitle"]</div>
+    <div class="content">
+        <div class="container-fluid">
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NoName">No name</label>
+                    <br />
+                    <select asp-for="NoName" class="form-select">
+                        @{
+                            if (Model.NoName != null)
+                            {
+                                <option value="@Model.NoName">@Model.NoName</option>
+                            }
+                        }
+                        @foreach (var item in Model.Nos)
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    </select>
+                    <br />
+                    <span asp-validation-for="NoName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StartDate">Start date</label>
+                    <input asp-for="StartDate" class="form-control" type="datetime-local" />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EndDate">End date</label>
+                    <input asp-for="EndDate" class="form-control" type="datetime-local" />
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName">First name</label>
+                    <input asp-for="FirstName" class="form-control" type="text" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName">Last name</label>
+                    <input asp-for="LastName" class="form-control" type="text" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cost"></label>
+                    <input asp-for="Cost" class="form-control" type="text" />
+                    <span asp-validation-for="Cost" class="text-danger"></span>
+                </div>
+                <div class="reset-button">
+                    <button class="btn btn-success">@ViewData["contractTitle"]</button>
+                </div>
+                <br />
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

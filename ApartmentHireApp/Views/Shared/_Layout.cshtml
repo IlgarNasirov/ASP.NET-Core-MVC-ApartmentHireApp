@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewData["title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/forsigner/magic-check/master/css/magic-check.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" href="/assets/Paomedia-Small-N-Flat-House.512.png" />
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+    <div id="logo">
+        <span class="big-logo">Apartment hire</span>
+        <span class="small-logo">A!H</span>
+    </div>
+    <div id="left-menu">
+        <ul>
+            <li class="active has-sub" style="cursor: pointer;">
+                <a>
+                    <i class="ion-ios-home-outline"></i>
+                    <span>Blocks</span>
+                </a>
+                <ul>
+                    <li><a asp-controller="Block" asp-action="Index">All blocks</a></li>
+                    <li><a asp-controller="Block" asp-action="AddBlock">Add block</a></li>
+                </ul>
+            </li>
+            <li class="active has-sub" style="cursor: pointer;">
+                <a>
+                    <i class="ion-ios-home-outline"></i>
+                    <span>Apartments</span>
+                </a>
+                <ul>
+                    <li><a asp-controller="Apartment" asp-action="Apartments">All apartments</a></li>
+                    <li><a asp-controller="Apartment" asp-action="AddApartment">Add apartment</a></li>
+                </ul>
+            </li>
+            <li class="active has-sub" style="cursor: pointer;">
+                <a>
+                    <i class="ion-android-contract"></i>
+                    <span>Contracts</span>
+                </a>
+                <ul>
+                    <li><a asp-controller="Contract" asp-action="Contracts">All contracts</a></li>
+                    <li><a asp-controller="Contract" asp-action="AddContract">Add contract</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="main-content">
+        <div id="header">
+            <div class="header-left float-left">
+                <i id="toggle-left-menu" class="ion-android-menu"></i>
+            </div>
+            <div class="header-right float-right">
+                <i class="ion-ios-people"></i>
+            </div>
+        </div>
+
+        <div id="page-container">
+            @RenderBody()
+        </div>
+    </div>
+    <span id="show-lable">Hello</span>
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="/assets/js/script.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
